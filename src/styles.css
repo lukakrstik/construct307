@@ -1,1 +1,20 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@font-face{
+  font-family: 'N27';
+  src: url('/assets/n27-regular-webfont.eot');
+  src: url('/assets/n27-regular-webfont.eot?#iefix') format('embedded-opentype'),
+  url('/assets/n27-regular-webfont.woff') format('woff'),
+  url('/assets/n27-regular-webfont.ttf') format('truetype')
+}
+
+.bg{
+  color: #171717;
+  background: linear-gradient(rgba(217, 217, 217, 0.6), rgba(236, 236, 236, 0.6));
+  backdrop-filter: blur(15px);
+}
+
+.navText{
+  font-family: N27;
+}
