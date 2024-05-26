@@ -1,27 +1,42 @@
-<app-navbar></app-navbar>
-<div class="w-full flex flex-col md:flex-row bg-tiffblue text-center justify-evenly navText">
-  <div class="p-8 md:w-[25%]">
-    <h2 class="text-offblue text-6xl">{{this.cement}} m<sup>3</sup></h2>
-    <h4 class="text-offblue">Cement turned into homes</h4>
-  </div>
-  <div class="p-8 md:w-[25%]">
-    <h2 class="text-offblue text-6xl">{{this.ppl}}</h2>
-    <h4 class="text-offblue">People livng in our buildings</h4>
-  </div>
-</div>
-<div class="text-offwhite bg-offblack navText flex flex-col md:flex-row justify-evenly">
-  <div class="flex flex-col justify-center text-7xl text-left">
-    <h1>CONSTRUCT</h1>
-    <h1>(307)</h1>
-  </div>
-  <div>
-    <div class="flex flex-col justify-center p-8">
-      <p>Ul. 42, Br. 307, Sopishte,<br> 1000 Skopje, N. Macedonia<br>+389 75 000 000<br>contact&#64;construct307.com</p>
+<div class="h-dvh overflow-x-hidden bg-offwhite">
+  <app-navbar></app-navbar>
+  <div class="flex flex-col lg:flex-row">
+    <div class="md:basis-1/2 relative">
+      <svg class="absolute" width="100%" height="100%" viewBox="0 0 1280 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+        <path id="1" d="M0,0L0,628.667L309,404.125L611,584L808,0L0,0Z" style=""/>
+        <path id="2" d="M1280,628.667L1280,0L808,0L642.153,487" style=""/>
+        <path id="3" d="M0,626L311,404.125L611.056,584L470,1024L0,1024L0,626Z" style=""/>
+        <path id="4" d="M470,1024L642.153,487L1280,626L1280,1024" style=""/>
+      </svg>
+      <img src="assets/Buildings%20Photo.jpg">
     </div>
-    <div class="flex flex-col justify-center p-8">
-      <h1>Instagram</h1>
-      <h1>LinkedIn</h1>
-      <h1>GitHub</h1>
+    <div class="bg-offwhite text-offblack navText md:basis-1/2 p-8 flex flex-col justify-center">
+      <div class="w-fit mx-auto flex flex-col justify-around h-[90%]">
+        <div>
+          <h1 class="text-5xl md:text-8xl">{{this.title}}</h1>
+          <h1 class="text-lg md:text-3xl md:ml-2">{{this.text}}</h1>
+        </div>
+      </div>
+      <button routerLink="/projects" routerLinkActive="active" class="bg-offblack text-offwhite mt-8  lg:mt-0 px-32 py-4 w-fit mx-auto">See All Projects</button>
     </div>
   </div>
+  <div class="w-full flex flex-col md:flex-row bg-tiffblue text-center justify-evenly navText">
+    <div class="p-8">
+      <h2 class="text-offblue text-6xl">{{this.cement}} m<sup>3</sup></h2>
+      <h4 class="text-offblue">Cement turned into homes</h4>
+    </div>
+    <div class="p-8">
+      <h2 class="text-offblue text-6xl">{{this.ppl}}</h2>
+      <h4 class="text-offblue">People livng in our buildings</h4>
+    </div>
+  </div>
+  <div class="flex flex-col lg:flex-row bg-offblue">
+    <div class="text-offwhite navText md:basis-1/2 p-8 flex flex-col justify-center">
+      <h1 class="text-5xl md:text-8xl">Make your next home feel like home.</h1>
+    </div>
+    <div class="md:basis-1/2">
+      <img class="maskimg [mask-image:url('/assets/mask3.png')] lg:[mask-image:url('/assets/mask2.png')]" src="assets/interior.jpg">
+    </div>
+  </div>
+  <app-footer></app-footer>
 </div>
