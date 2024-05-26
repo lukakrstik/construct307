@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import { AuthService } from '../auth.service';
-import {Router} from "@angular/router"
+import {Router, RouterLink, RouterLinkActive, RouterOutlet} from "@angular/router"
 import {FormsModule} from "@angular/forms";
 import {AngularFireAuth} from "@angular/fire/compat/auth";
 import {AngularFireModule} from "@angular/fire/compat";
@@ -10,7 +10,7 @@ import {CommonModule} from "@angular/common";
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, RouterOutlet, RouterLink, RouterLinkActive],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
