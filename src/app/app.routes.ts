@@ -11,5 +11,5 @@ export const routes: Routes = [
   {path: 'apdash', component: AdminDashboardComponent},
   {path: 'home', component: HomeComponent},
   {path: 'projects', component: ProjectsComponent},
-  {path: 'aboutus', component: AboutusComponent}
+  {path: 'about-us', component: AboutusComponent}
 ];
