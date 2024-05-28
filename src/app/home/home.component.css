@@ -20,9 +20,54 @@ path {
   mask-size: cover;
 }
 
-.maskimgSM{
-  mask-image: url("/assets/mask3.png");
-  mask-repeat: no-repeat;
-  mask-size: cover;
+.wrapper {
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  perspective: 10px;
+  background-color: #EAEAEA;
 }
+.wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  transform-style: preserve-3d;
+  z-index: -1;
+}
+
+.background-back {
+  transform: translateZ(-20px) scale(3.3);
+}
+
+.background {
+  transform: translateZ(-10px) scale(2);
+}
+
+.foreground {
+  transform: translateZ(-1px) scale(1.4);
+}
+
+.background,
+.foreground,
+.background-back {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+.background-text {
+  position: absolute;
+  top: 22%;
+  object-fit: cover;
+  z-index: -1;
+  transform: translateZ(-13px) scale(1);
+  font-weight: bold;
+}
+
 

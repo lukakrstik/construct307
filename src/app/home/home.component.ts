@@ -12,9 +12,16 @@ import {FooterComponent} from "../footer/footer.component";
   styleUrl: './home.component.css'
 })
 export class HomeComponent implements OnInit, OnDestroy{
-  public cement : number = 21840123
-  public ppl : number = 1500
+
+  private cementNppl: number[] = [214570, 1671]
+  public cement : number = 141230
+  public ppl : number = 1541
   private index: number = 2
+
+  private interiorIndex: number = 1;
+  private interiorPhotos: string[] = ["assets/interior.jpg", "assets/interior2.jpg", "assets/interior3.jpg"]
+  public photoInterior: string = "assets/interior.jpg"
+
   public titleArr : string[] = ["Our Vision", "Sustainability", "Efficiency", "Hot or Cold"]
   public textArr : string[] = ["Building homes with precision and passion, crafting the foundation for your future.",
                                "Creating eco-friendly homes that nurture both your lifestyle and the planet.",
@@ -22,12 +29,18 @@ export class HomeComponent implements OnInit, OnDestroy{
                                "Designing homes that provide comfort and efficiency in every climate."]
   public title : string = "Our Vision"
   public text : string = "Building homes with precision and passion, crafting the foundation for your future."
-  private interval: any;
+
+  private intervalBuildings: any;
+  private intervalInterior: any;
+
+
+
+
   ngOnInit() {
-    window.addEventListener('DOMContentLoaded', () => {
+
       //@ts-ignore
       document.getElementById("1").style.opacity = "50%"
-      this.interval = setInterval(() => {
+      this.intervalBuildings = setInterval(() => {
         //@ts-ignore
         if(this.index == 1) document.getElementById("4").style.opacity = "0%"
         //@ts-ignore
@@ -39,9 +52,18 @@ export class HomeComponent implements OnInit, OnDestroy{
         if(this.index < 4) this.index++;
         else this.index = 1;
       },5000)
-    })
+
+      this.intervalInterior = setInterval(() => {
+        if(this.interiorIndex > 2) this.interiorIndex = 0;
+        this.photoInterior = this.interiorPhotos[this.interiorIndex];
+        this.interiorIndex++;
+      },3000)
+
+
+
   }
   ngOnDestroy(){
-    clearInterval(this.interval)
+    clearInterval(this.intervalBuildings);
+    clearInterval(this.intervalInterior);
   }
 }
