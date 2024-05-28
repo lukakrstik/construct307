@@ -1,3 +1,10 @@
-<app-navbar></app-navbar>
-<p>projects works!</p>
-
+<div class="bg-offwhite">
+  <app-navbar></app-navbar>
+<div class="bg-offwhite navText flex">
+  <div routerLinkActive="active" routerLink="/project/{{project.id}}" *ngFor="let project of projects" class="text-offwhite basis-1/3 pl-4 pb-4 pr-32 p-16" style="background-size: cover; background-repeat: no-repeat; background-image: url({{project.photo}})">
+      <h1 class="text-5xl">{{project.name}}</h1>
+      <h1 class="text-3xl">{{project.address}}</h1>
+  </div>
+</div>
+<app-footer></app-footer>
+</div>
