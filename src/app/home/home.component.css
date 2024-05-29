@@ -70,4 +70,13 @@ header {
   font-weight: bold;
 }
 
+.blackBtn:hover {
+  opacity: 70%;
+  transition: opacity  400ms;
+}
+
+.greenBtn:hover {
+  background-color: #95DBD9;
+  transition: background-color 400ms;
+}
 

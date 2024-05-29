@@ -1,19 +1,19 @@
 <div class="flex flex-row justify-between w-full sticky text-offblack top-0 z-50 bg navText">
-  <div class="font-black leading-none">
-    <div class="flex-col m-4 justify-center">
+  <div routerLinkActive="active" routerLink="/home" class="font-black leading-none cursor-pointer">
+    <div  class="flex-col m-4 justify-center">
         <h3>CONSTRUCT</h3>
         <h3 class="text-left">[307]</h3>
     </div>
   </div>
   <div class="flex flex-row font-light">
     <div class="flex flex-col justify-center">
-      <h4 routerLinkActive="active" routerLink="/home" [className]="router.url === '/home' ? 'text-offblack underline m-4 h-fit' : 'text-offblack m-4 h-fit'" >Home</h4>
+      <h4 routerLinkActive="active" routerLink="/home" [className]="router.url === '/home' ? 'cursor-pointer text-offblack underline m-4 h-fit' : 'cursor-pointer text-offblack m-4 h-fit'" >Home</h4>
     </div>
     <div class="flex flex-col justify-center">
-      <h4 routerLinkActive="active" routerLink="/projects" [className]="router.url === '/projects' ? 'text-offblack m-4 underline h-fit' : 'text-offblack m-4 h-fit'">Projects</h4>
+      <h4 routerLinkActive="active" routerLink="/projects" [className]="router.url === '/projects' ? 'cursor-pointer text-offblack m-4 underline h-fit' : 'cursor-pointer text-offblack m-4 h-fit'">Projects</h4>
     </div>
     <div class="flex flex-col justify-center">
-      <h4 routerLinkActive="active" routerLink="/about-us" [className]="router.url === '/about-us' ? 'text-offblack m-4 underline h-fit' : 'text-offblack m-4 h-fit'">About Us</h4>
+      <h4 routerLinkActive="active" routerLink="/about-us" [className]="router.url === '/about-us' ? 'cursor-pointer text-offblack m-4 underline h-fit' : 'cursor-pointer text-offblack m-4 h-fit'">About Us</h4>
     </div>
   </div>
 </div>
