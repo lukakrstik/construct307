@@ -1,0 +1,28 @@
+.showDesc:hover > .desc {
+  opacity: 100%;
+  transition: opacity 400ms;
+}
+.showDesc:hover > img {
+  opacity: 75%;
+  transition: opacity 400ms;
+}
+
+.showDesc:hover > .title {
+  background-color: #3a7b7b;
+  transition: background-color 400ms;
+}
+
+.desc {
+  opacity: 0%;
+  transition: opacity 400ms;
+}
+
+img{
+  opacity: 100%;
+  transition: opacity 400ms;
+}
+
+.title {
+  background-color: #171717;
+  transition: background-color 400ms;
+}
