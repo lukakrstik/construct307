@@ -19,11 +19,12 @@ path {
 }
 
 .wrapper {
-  height: 100vh;
+  height: 95vh;
   overflow-y: auto;
   overflow-x: hidden;
   perspective: 10px;
-  background-color: #EAEAEA;
+  background-image: url("../../assets/para3.webp");
+  background-size: cover;
 }
 .wrapper::-webkit-scrollbar {
   display: none;
@@ -33,21 +34,21 @@ header {
   position: relative;
   display: flex;
   align-items: center;
-  height: 100%;
+  height: 110%;
   transform-style: preserve-3d;
   z-index: -1;
 }
 
 .background-back {
-  transform: translateZ(-20px) scale(3.3);
+  transform: translateZ(-10px) scale(2.2);
 }
 
 .background {
-  transform: translateZ(-10px) scale(2);
+  transform: translateZ(-5px) scale(1.5);
 }
 
 .foreground {
-  transform: translateZ(-1px) scale(1.4);
+  transform: translateZ(1px) scale(1.5);
 }
 
 .background,

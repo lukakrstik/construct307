@@ -24,11 +24,11 @@ export class ProjectDetailComponent implements OnInit {
 
   Hover(i : number){
     //@ts-ignore
-    document.getElementById("apart" + i).style.backgroundColor = "#171717"
+    document.getElementById("apart" + i).style.textDecoration = "underline"
   }
   OutHover(i : number){
     //@ts-ignore
-    document.getElementById("apart" + i).style.backgroundColor = "#3a7b7b"
+    document.getElementById("apart" + i).style.textDecoration = "none"
   }
   Floorplan(index : number){
     console.log(index)
