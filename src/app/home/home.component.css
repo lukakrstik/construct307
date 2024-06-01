@@ -4,15 +4,13 @@ path {
 
 path {
   fill: #171717;
+  opacity: 0%;
+  transition: opacity 400ms;
 }
 
 .pathOpacity {
-  animation-name: opacityShow;
-  animation-duration: 400ms;
-}
-@keyframes opacityShow {
-  from {opacity: 0%}
-  to {opacity: 50%}
+  opacity: 50%;
+  transition: opacity 400ms;
 }
 
 .maskimg{
@@ -75,8 +73,17 @@ header {
   transition: opacity  400ms;
 }
 
+.blackBtn{
+  opacity: 100%;
+  transition: opacity  400ms;
+}
+
 .greenBtn:hover {
   background-color: #95DBD9;
   transition: background-color 400ms;
 }
 
+.greenBtn{
+  background-color: #3a7b7b;
+  transition: background-color 400ms;
+}

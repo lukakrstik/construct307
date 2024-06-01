@@ -1,0 +1,71 @@
+<div class="flex justify-start h-dvh navText bg-offblack">
+  <div class="bg-offwhite flex h-full flex-col text-offblack p-8 mx-auto basis-1/2 overflow-auto">
+    <h1 class="text-2xl mx-2 mb-8">CONSTRUCT [307] PROJECT BUILDER</h1>
+    <input placeholder="Name" type="text" [(ngModel)]="this.p.name">
+    <input placeholder="Address" type="text"  [(ngModel)]="this.p.address">
+    <input placeholder="Desc" type="text" [(ngModel)]="this.p.desc">
+    <h2 class="">Photo must be 1800x1777</h2>
+    <input placeholder="Url of Photo" type="text" [(ngModel)]="this.p.photo">
+    <input placeholder="ID" type="text" [(ngModel)]="this.p.id">
+    <h2 class="">Seperated by Commas</h2>
+    <input placeholder="Floors" type="text" [(ngModel)]="this.floorsString" (change)="PushFloors(this.floorsString)">
+    <input placeholder="Number of Apartments" type="text" [(ngModel)]="this.p.noApartments">
+    <h2 class="">Seperated by |</h2>
+    <input placeholder="SVG Paths" type="text" [(ngModel)]="this.svgPathsString" (change)="PushPaths(this.svgPathsString)">
+    <form ngForm>
+      <div *ngFor="let f of this.p.floors; index as i" class="border-b-2 border-offblack">
+        <h1 class="text-2xl">Floor {{this.p.floors[i]}}</h1>
+        <h2 class="">Photo must be 1200x800</h2>
+        <input placeholder="Url of Photo {{i}}" type="text" name="{{i}} + 'URL'" [(ngModel)]="p.floorplan[i].photo">
+        <h2 class="">Seperated by |</h2>
+        <input placeholder="SVG Paths" type="text" name="paths{{i}}" [(ngModel)]="this.p.floorplan[i].fullStringPaths" (change)="PushPathsFloor(this.p.floorplan[i].fullStringPaths, i)">
+        <div *ngFor="let a of this.p.floorplan[i].paths; index as j" class="flex justify-evenly">
+          <h2>Sold</h2>
+          <input type="checkbox" name="sold{{i}}{{j}}" [(ngModel)]="this.p.floorplan[i].sold[j]">
+          <input type="text" placeholder="Size" name="size{{i}}{{j}}" [(ngModel)]="this.p.floorplan[i].size[j]">
+          <input type="text" placeholder="Apartment No." [value]="false" name="apartment{{i}}{{j}}" [(ngModel)]="this.p.floorplan[i].apartments[j]">
+        </div>
+      </div>
+    </form>
+      <button class="bg-alertred text-offwhite" (click)="Submit()">Submit</button>
+      <h1 *ngIf="message.length" class="bg-offblue text-offwhite p-2 mx-2 px-4 mx-auto text-center">{{this.message}}</h1>
+  </div>
+  <div class="flex flex-col basis-1/2 overflow-y-scroll">
+    <div class="title bg-offblack flex justify-between">
+      <div class=" px-4 py-2 w-100 text-offwhite">
+        <h1 class="text-4xl">{{p.name}}</h1>
+        <h1 class="text-md mt-2">{{p.address}}</h1>
+      </div>
+      <div class="w-fit py-2 px-4 text-offwhite">
+        <h1 class="text-4xl text-right">{{p.noApartments}}</h1>
+        <h1 class="text-md mr-0 mt-2">Apartments</h1>
+      </div>
+    </div>
+    <div class="desc z-20 bottom-0 py-4 px-2 w-full bg"><h1>{{p.desc}}</h1></div>
+    <div class="relative">
+      <svg *ngIf="this.showSVG" class="absolute" width="100%" height="100%" viewBox="0 0 1800 1777" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+        <path *ngFor="let p of this.p.svgPaths; index as i"
+              [attr.d]=p style="fill: #171717;fill-opacity:0.48;stroke:#95DBD9;stroke-width:6px;"/>
+      </svg>
+      <h1 class="absolute top-[100%] bg-offblack text-offwhite navText text-xl md:text-4xl w-[15%] text-center text-bold" id="floor"></h1>
+      <img src={{p.photo}}>
+    </div>
+    <div class="flex flex-col z-10 navText" *ngFor="let f of this.p.floorplan; index as i">
+      <div class="bg-offblue text-offwhite p-16 flex flex-col justify-center">
+        <div class="text-right">
+          <h1 class="text-4xl md:text-6xl">Floor {{this.p.floors[i]}}</h1>
+          <!--Fix Apartment Numbering!!!-->
+          <h1 *ngFor="let a of f.sold; index as j" class="text-xl md:text-3xl">Apartment {{f.apartments[j]}} {{a ? "Sold" : "Available"}} | {{f.size[j]}}m<sup>2</sup></h1>
+        </div>
+      </div>
+      <div class="relative">
+        <svg class="absolute" width="100%" height="100%" viewBox="0 0 1200 800" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+        <path *ngFor="let p of f.paths; index as j"
+              [attr.d]=p [classList]="f.sold[j] ? 'sold' : 'notSold'"/>
+      </svg>
+        <img class="mx-auto" src={{f.photo}}>
+      </div>
+
+    </div>
+  </div>
+</div>
