@@ -1,6 +1,47 @@
 <div class="bg-offwhite">
   <app-navbar></app-navbar>
-  <h1>{{project.name}}</h1>
-  <img src={{project.photo}}>
+  <div class="flex flex-col lg:flex-row z-10">
+    <div class="md:basis-1/2 relative">
+      <svg class="absolute" width="100%" height="100%" viewBox="0 0 1800 1777" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+        <path *ngFor="let p of project.svgPaths; index as i"
+              (mouseout)="Revert()"
+              (mouseover)="CallFloor(project.floors[i])"
+              (click)="Floorplan(i)"
+              [attr.d]=p style="fill: #171717;fill-opacity:0.48;stroke:#95DBD9;stroke-width:6px;"/>
+      </svg>
+      <h1 class="absolute top-[100%]  lg:top-[0%]  lg:left-[100%] bg-offblack text-offwhite navText text-xl md:text-4xl w-[15%] text-center text-bold" id="floor"></h1>
+      <img src={{project.photo}}>
+    </div>
+    <div class="bg-offwhite text-offblack navText md:basis-1/2 p-8 flex flex-col justify-evenly mt-8 lg:mt-0">
+      <div class="w-50 flex flex-col justify-center mb-4">
+        <div>
+          <h1 class="text-4xl mb-2 lg:text-8xl">{{project.name}}</h1>
+          <h1 class="text-lg md:text-3xl md:ml-2">{{project.address}}</h1>
+        </div>
+      </div>
+      <div class="w-50 text-left text-lg">
+        <h1>{{project.desc}}</h1>
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-col lg:flex-row z-10 navText" *ngIf="this.show">
+    <div class="bg-offblue text-offwhite md:basis-1/2 p-16 flex flex-col justify-center">
+      <div class="text-right">
+        <h1 class="text-4xl md:text-6xl">Floor {{this.floorplanIndex}}</h1>
+        <!--Fix Apartment Numbering!!!-->
+        <h1 *ngFor="let a of project.floorplan[this.floorplanIndex].sold; index as i" [id]="'apart' + i" class="text-xl md:text-3xl m-2">Apartment {{project.floorplan[this.floorplanIndex].apartments[i]}} {{a ? "Sold" : "Available"}} | {{project.floorplan[this.floorplanIndex].size[i]}}m<sup>2</sup></h1>
+      </div>
+    </div>
+    <div class="relative md:basis-1/2">
+      <svg class="absolute" width="100%" height="100%" viewBox="0 0 1200 800" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+        <path *ngFor="let p of project.floorplan[this.floorplanIndex].paths; index as i"
+              (mouseover)="Hover(i)"
+              (mouseleave)="OutHover(i)"
+              [attr.d]=p [classList]="project.floorplan[floorplanIndex].sold[i] ? 'sold apart' : 'notSold apart'"/>
+      </svg>
+      <img class="mx-auto" src={{this.floorplanImg}}>
+    </div>
+
+  </div>
   <app-footer></app-footer>
 </div>
