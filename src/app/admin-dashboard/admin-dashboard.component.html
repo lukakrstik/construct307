@@ -1,2 +1,24 @@
-<p>admin-dashboard works!</p>
-<button (click)="logout()" class="btnLogout bg-black text-white px-4 pl-4 p-4 border-l-2 border-krstic">Logout</button>
+<div *ngIf="this.user">
+  <div class="navText flex justify-between bg-offblue border-b-2 border-offwhite text-offwhite pl-4">
+    <div class="flex flex-col justify-center">
+      <h1 class="text-2xl">CONSTRUCT [307] ADMIN</h1>
+    </div>
+    <div>
+      <button routerLink="/home" routerLinkActive="active" class="w-[10vw] bg-offblack text-offwhite px-4 pl-4 p-4">Home</button>
+      <button (click)="logout()" class="w-[10vw] bg-offblack text-offwhite px-4 pl-4 p-4 border-l-2 border-offwhite">Logout</button>
+    </div>
+  </div>
+  <div class="flex flex-col">
+    <div *ngFor="let project of projects" class="text-offwhite  md:basis-1/3">
+      <div class="pl-4 w-100 bg-offblack text-offwhite flex justify-between">
+        <h1 class="py-8">{{project.name}}</h1>
+        <h1 class="py-8">{{project.address}}</h1>
+        <h1 class="py-8">{{project.desc}}</h1>
+        <div>
+          <button class="w-[7vw] py-8 bg-tiffblue text-offblack">EDIT</button>
+          <button class="w-[7vw] py-8 bg-alertred">DELETE</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
