@@ -11,10 +11,21 @@
 
 .bg{
   color: #171717;
-  background: linear-gradient(rgba(234, 234, 234, 0.66), rgba(236, 236, 236, 0.6));
-  backdrop-filter: blur(15px);
+  background: linear-gradient(rgba(234, 234, 234, 0.55), rgba(236, 236, 236, 0.50));
+  backdrop-filter: blur(5px);
 }
 
 .navText{
   font-family: N27;
+}
+
+.sold{
+  fill: #CE4658;
+  fill-opacity: 80%;
+  stroke:#CE4658;
+}
+
+.notSold {
+  fill: #171717;
+  stroke:#95DBD9;
 }
