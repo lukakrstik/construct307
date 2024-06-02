@@ -29,6 +29,9 @@
 
 .bgsquare{
   background-image: url("../../assets/pattern.webp");
+  -moz-background-image: url("../../assets/pattern.webp");
+  -o-background-image: url("../../assets/pattern.webp");
+  -webkit-background-image: url("../../assets/pattern.webp");
   background-size: 48%;
 }
 
