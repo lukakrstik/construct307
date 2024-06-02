@@ -19,14 +19,6 @@
   }
 }
 
-.maskimg{
-  mask-repeat: no-repeat;
-  mask-size: cover;
-  mask-image:url('../../assets/mask4.png');
-  opacity: 50%;
-
-}
-
 .bgsquare{
   background-image: url("../../assets/pattern.webp");
   -moz-background-image: url("../../assets/pattern.webp");
