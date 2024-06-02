@@ -18,3 +18,21 @@
     transform: translateX(-100%);
   }
 }
+
+.maskimg{
+  mask-repeat: no-repeat;
+  mask-size: cover;
+  mask-image:url('../../assets/mask4.png');
+  opacity: 50%;
+
+}
+
+.bgsquare{
+  background-image: url("../../assets/pattern.webp");
+  background-size: 48%;
+}
+
+.bgsquare h1,p, h2{
+  background-color: #EAEAEA;
+  padding: 0.50rem;
+}
