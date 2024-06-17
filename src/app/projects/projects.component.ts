@@ -22,13 +22,27 @@ import {RouterLink, RouterLinkActive, RouterOutlet} from "@angular/router";
 export class ProjectsComponent implements OnInit{
   constructor(private dbService: DbService) {
   }
+  public counter : number = 0;
   public loaded : boolean = false;
   public projects : any;
+  public dots : string = "."
   async readData() {
     this.projects = await this.dbService.getData().finally(() => {this.loaded = true;});
 
   }
   ngOnInit() {
     this.readData()
+    setInterval(() => {
+      if(this.counter < 307)
+      this.counter++
+    },25)
+    setInterval(() => {
+      if(this.dots.length < 3){
+        this.dots += "."
+      }
+      else {
+        this.dots = "."
+      }
+    },400)
   }
 }

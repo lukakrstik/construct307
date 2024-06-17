@@ -22,7 +22,7 @@ path:hover{
 }
 
 .hoveredApart {
-  border-right: #171717 solid 14px;
-  padding-right: 2px;
+  border-right: #171717 solid 1rem;
+  padding-right: 0;
   transition: padding-right 250ms, border-right-width 250ms;
 }
