@@ -1,9 +1,9 @@
 <div class="bg-offwhite">
   <app-navbar></app-navbar>
-  <div class="h-dvh text-4xl navText mt-32" *ngIf="!this.loaded">
-    <h1 class="w-[40vw] bg-offblack text-offwhite p-2 px-8">CONSTRUCT [{{this.counter}}]</h1>
+  <div class="h-dvh text-2xl navText mt-32" *ngIf="this.loaded">
+    <h1 class="w-[85vw] md:w-[40vw] bg-offblack text-offwhite p-2 px-8">CONSTRUCT [{{this.counter}}]</h1>
     <div class="flex justify-end">
-      <h1 class="w-[40vw] bg-offblack text-offwhite p-2 px-16">Loading{{this.dots}}</h1>
+      <h1 class="w-[85vw] md:w-[40vw] bg-offblack text-offwhite p-2 px-16 mt-8">Loading{{this.dots}}</h1>
     </div>
   </div>
 <div class="bg-offwhite navText flex flex-wrap shrink-0" *ngIf="this.loaded">

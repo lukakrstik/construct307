@@ -26,17 +26,23 @@ export class ProjectsComponent implements OnInit{
   public loaded : boolean = false;
   public projects : any;
   public dots : string = "."
+  public intervalConstruct : any
+  public intervalLoading : any
   async readData() {
-    this.projects = await this.dbService.getData().finally(() => {this.loaded = true;});
+    this.projects = await this.dbService.getData().finally(() => {
+      this.loaded = true;
+      clearInterval(this.intervalConstruct)
+      clearInterval(this.intervalLoading)
+    });
 
   }
   ngOnInit() {
     this.readData()
-    setInterval(() => {
+    this.intervalConstruct = setInterval(() => {
       if(this.counter < 307)
       this.counter++
     },25)
-    setInterval(() => {
+    this.intervalLoading = setInterval(() => {
       if(this.dots.length < 3){
         this.dots += "."
       }
