@@ -22,13 +22,13 @@ import {RouterLink, RouterLinkActive, RouterOutlet} from "@angular/router";
 export class ProjectsComponent implements OnInit{
   constructor(private dbService: DbService) {
   }
+  public loaded : boolean = false;
   public projects : any;
   async readData() {
-    this.projects = await this.dbService.getData();
+    this.projects = await this.dbService.getData().finally(() => {this.loaded = true;});
+
   }
   ngOnInit() {
-    this.readData().then(() => {
-      console.log(this.projects[0].name)
-    });
+    this.readData()
   }
 }

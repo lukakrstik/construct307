@@ -12,3 +12,17 @@ path:hover{
   opacity: 30%;
 }
 
+.apartmentsDiv > div:nth-child(odd){
+  background-color: #dbdbdb;
+  color: #171717;
+}
+.apartmentsDiv > div:nth-child(even){
+  background-color: #EAEAEA;
+  color: #171717;
+}
+
+.hoveredApart {
+  border-right: #171717 solid 14px;
+  padding-right: 18px;
+  transition: padding-right 200ms, border-right-width 200ms;
+}

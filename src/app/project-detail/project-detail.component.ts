@@ -21,25 +21,27 @@ export class ProjectDetailComponent implements OnInit {
   public show: boolean = false
   public floorplanIndex: number = 0
   public floorplanImg: string = ""
+  public helper: boolean = true;
 
   Hover(i : number){
     //@ts-ignore
-    document.getElementById("apart" + i).style.textDecoration = "underline"
+    document.getElementById("apart" + i).classList.add("hoveredApart")
   }
   OutHover(i : number){
     //@ts-ignore
-    document.getElementById("apart" + i).style.textDecoration = "none"
+    document.getElementById("apart" + i).classList.remove("hoveredApart")
   }
   Floorplan(index : number){
-    console.log(index)
-    console.log(this.project.floorplan[index])
     this.show = true;
     this.floorplanImg = this.project.floorplan[index].photo
     this.floorplanIndex = index;
+    setTimeout(() => {document.getElementById("floorplan-container")?.scrollIntoView({behavior: 'smooth', block: 'center'})}, 20)
+
   }
   CallFloor(floor: string){
     //@ts-ignore
     document.getElementById("floor").innerHTML = floor
+    this.helper = false;
   }
   Revert(){
     //@ts-ignore
