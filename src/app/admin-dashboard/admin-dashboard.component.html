@@ -1,22 +1,29 @@
 <div *ngIf="this.user">
   <div class="navText flex justify-between bg-offblue border-b-2 border-offwhite text-offwhite pl-4">
     <div class="flex flex-col justify-center">
-      <h1 class="text-2xl">CONSTRUCT [307] ADMIN</h1>
+      <h1 class="">CONSTRUCT [307] ADMIN</h1>
     </div>
     <div>
-      <button routerLink="/home" routerLinkActive="active" class="w-[10vw] bg-offblack text-offwhite px-4 pl-4 p-4">Home</button>
-      <button (click)="logout()" class="w-[10vw] bg-offblack text-offwhite px-4 pl-4 p-4 border-l-2 border-offwhite">Logout</button>
+      <button routerLink="/home" routerLinkActive="active" class="w-[7vw] bg-offwhite text-offblack px-4 pl-4 p-2">Home</button>
+      <button routerLink="/apadd" routerLinkActive="active" class="w-fit bg-offwhite text-offblack border-l-2 border-offblack px-4 pl-4 p-2">New Project</button>
+      <button (click)="logout()" class="w-[7vw] h-fit bg-alertred text-offwhite px-4 pl-4 p-2 border-l-2 border-offblack">Logout</button>
     </div>
   </div>
   <div class="flex flex-col">
-    <div *ngFor="let project of projects" class="text-offwhite  md:basis-1/3">
-      <div class="pl-4 w-100 bg-offblack text-offwhite flex justify-between">
-        <h1 class="py-8">{{project.name}}</h1>
-        <h1 class="py-8">{{project.address}}</h1>
-        <h1 class="py-8">{{project.desc}}</h1>
-        <div>
-          <button class="w-[7vw] py-8 bg-tiffblue text-offblack">EDIT</button>
-          <button class="w-[7vw] py-8 bg-alertred">DELETE</button>
+    <div *ngFor="let project of projects" class="text-offwhite shadow-xl mb-8">
+      <div class="w-100 bg-offwhite text-offblack flex flex-col lg:flex-row justify-between">
+        <img class="w-auto h-auto lg:h-[25vh] mr-4" src={{project.photo}}>
+        <div class="flex flex-col justify-between">
+          <div class="flex flex-col">
+            <h1 class="py-4 text-xl font-bold">{{project.name}}</h1>
+            <h1 class="text-md">{{project.address}}</h1>
+            <h1 class="py-4 text-sm">{{project.desc}}</h1>
+          </div>
+          <div class="flex text-offwhite">
+            <button routerLinkActive="active" routerLink="/project/edit/{{project.id}}" class="w-fit py-2 px-8 bg-tiffblue text-offblack mb-4 shadow-xl">EDIT</button>
+            <button (click)="ShowConfirmDelete(project.id)" class="w-fit py-2 px-8 bg-alertred mx-8 mb-4 ">DELETE</button>
+            <button id={{project.id}} [hidden]="true" (click)="Delete(project.id)" class="w-fit py-2 px-8 bg-alertred mx-8 mb-4">Confirm Delete of {{project.id}}</button>
+          </div>
         </div>
       </div>
     </div>

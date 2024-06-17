@@ -26,17 +26,17 @@
     </div>
   </div>
   <div class="flex flex-col lg:flex-row z-10 navText" id="floorplan-container" *ngIf="this.show">
-    <div class="bg-offblue text-offwhite md:basis-1/2 py-16 flex flex-col justify-center">
+    <div class="bg-offwhite text-offwhite md:basis-1/2 py-16 flex flex-col justify-center">
       <div class="flex justify-end mr-4 md:mr-12">
-        <h1 class="text-4xl md:text-5xl text-right border-2 border-b-0 border-offblack w-fit pl-4 font-thin bg-offwhite text-offblack align-bottom pt-1 md:pt-2">Floor <strong class="bg-offblack text-offwhite border-b-2 border-offblack pt-1 md:pt-2 px-4">{{this.floorplanIndex}}</strong></h1>
+        <h1 class="shadow-xl text-4xl md:text-5xl text-right border-offblack w-fit pl-4 font-thin bg-offwhite text-offblack align-bottom pt-1 md:pt-2">Floor <strong class="bg-offblack text-offwhite border-b-2 border-offblack pt-1 md:pt-2 px-4">{{this.floorplanIndex}}</strong></h1>
       </div>
       <div class="flex justify-end">
-        <div class="border-2 border-offblack mx-4 md:mr-12 w-full md:w-7/12">
+        <div class="mx-4 md:mr-12 w-full md:w-7/12 shadow-2xl">
           <div class="text-left flex flex-col justify-evenly apartmentsDiv">
-            <div *ngFor="let a of project.floorplan[this.floorplanIndex].sold; index as i" [id]="'apart' + i" class="text-md md:text-2xl p-8 py-4 flex justify-between">
-              <h1>Apartment {{project.floorplan[this.floorplanIndex].apartments[i]}}</h1>
-              <h1>{{a ? "Sold" : "Available"}}</h1>
-              <h1>{{project.floorplan[this.floorplanIndex].size[i]}}m<sup>2</sup></h1>
+            <div *ngFor="let a of project.floorplan[this.floorplanIndex].sold; index as i" [id]="'apart' + i" class="text-center text-md md:text-2xl px-4 flex justify-between w-full">
+              <h1 class="basis-3/5 py-4">Apartment {{project.floorplan[this.floorplanIndex].apartments[i]}}</h1>
+              <h1 class="basis-2/5 py-4 pl-2" [class]='a ? "border-l-[5px] border-alertred" : "border-l-[5px] border-offblue"'>{{a ? "Sold" : "Available"}}</h1>
+              <h1 class="basis-1/5 py-4">{{project.floorplan[this.floorplanIndex].size[i]}}m<sup>2</sup></h1>
             </div>
           </div>
         </div>
